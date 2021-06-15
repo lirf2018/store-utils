@@ -21,6 +21,7 @@ public class DatetimeUtil {
     public static String DEFAULT_DATE_FORMAT_LONG = "yyyyMMdd";
     public static String DEFAULT_DATE_FORMAT_MINUTE = "yyyy-MM-dd HH:mm";
     public static String DEFAULT_DATE_FORMAT_ALL = "yyyyMMddHHmmss";
+    public static String DEFAULT_DATE_TIME = "HH:mm";
 
     /**
      * @return 根据默认格式(yyyy - MM - dd HH : mm : ss)获取当前时间
@@ -759,11 +760,36 @@ public class DatetimeUtil {
         return time;
     }
 
-    public static void main(String[] args) throws Exception {
-        String str = "2018-11-11 12:10:02";
-        Timestamp timestamp = new Timestamp(DatetimeUtil.convertStrToDate(str).getTime());
-        String beginTime = DatetimeUtil.timeStamp2Date(timestamp.getTime() / 1000 + "", "yyyy-MM-dd HH:mm:ss");
-        System.out.printf(beginTime);
+    public static String getWeekName(int week) {
+        String weenName = "";
+        switch (week) {
+            case 1:
+                weenName = "星期一";
+                break;
+            case 2:
+                weenName = "星期二";
+                break;
+            case 3:
+                weenName = "星期三";
+                break;
+            case 4:
+                weenName = "星期四";
+                break;
+            case 5:
+                weenName = "星期五";
+                break;
+            case 6:
+                weenName = "星期六";
+                break;
+            case 7:
+                weenName = "星期日";
+                break;
+            default:
+                break;
+
+        }
+        return weenName;
     }
+
 }
 

@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * @description:
  * @author: lirf
- * @time: 2021/5/16
+ * @time: 2021/6/14
  */
 @Entity
 @Table(name = "tb_coupon", schema = "store_db", catalog = "")
@@ -24,10 +24,8 @@ public class TbCoupon {
     private Integer areaId;
     private Integer isShow;
     private Integer couponType;
-    private BigDecimal couponValue;
     private Timestamp startTime;
     private Timestamp endTime;
-    private Integer validDate;
     private Integer outDate;
     private String createman;
     private Timestamp createtime;
@@ -44,6 +42,9 @@ public class TbCoupon {
     private Integer appointType;
     private Timestamp appointDate;
     private Timestamp limitBeginTime;
+    private Integer getType;
+    private BigDecimal couponPrice;
+    private Integer countGet;
 
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Id
@@ -157,16 +158,6 @@ public class TbCoupon {
     }
 
     @Basic
-    @Column(name = "coupon_value", nullable = true, precision = 2)
-    public BigDecimal getCouponValue() {
-        return couponValue;
-    }
-
-    public void setCouponValue(BigDecimal couponValue) {
-        this.couponValue = couponValue;
-    }
-
-    @Basic
     @Column(name = "start_time", nullable = true)
     public Timestamp getStartTime() {
         return startTime;
@@ -184,16 +175,6 @@ public class TbCoupon {
 
     public void setEndTime(Timestamp endTime) {
         this.endTime = endTime;
-    }
-
-    @Basic
-    @Column(name = "valid_date", nullable = true)
-    public Integer getValidDate() {
-        return validDate;
-    }
-
-    public void setValidDate(Integer validDate) {
-        this.validDate = validDate;
     }
 
     @Basic
@@ -356,46 +337,77 @@ public class TbCoupon {
         this.limitBeginTime = limitBeginTime;
     }
 
+    @Basic
+    @Column(name = "get_type", nullable = true)
+    public Integer getGetType() {
+        return getType;
+    }
+
+    public void setGetType(Integer getType) {
+        this.getType = getType;
+    }
+
+    @Basic
+    @Column(name = "coupon_price", nullable = true, precision = 2)
+    public BigDecimal getCouponPrice() {
+        return couponPrice;
+    }
+
+    public void setCouponPrice(BigDecimal couponPrice) {
+        this.couponPrice = couponPrice;
+    }
+
+    @Basic
+    @Column(name = "count_get", nullable = true)
+    public Integer getCountGet() {
+        return countGet;
+    }
+
+    public void setCountGet(Integer countGet) {
+        this.countGet = countGet;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TbCoupon tbCoupon = (TbCoupon) o;
-        return couponId == tbCoupon.couponId &&
-                Objects.equals(couponName, tbCoupon.couponName) &&
-                Objects.equals(title, tbCoupon.title) &&
-                Objects.equals(couponImg, tbCoupon.couponImg) &&
-                Objects.equals(intro, tbCoupon.intro) &&
-                Objects.equals(shopId, tbCoupon.shopId) &&
-                Objects.equals(weight, tbCoupon.weight) &&
-                Objects.equals(classifyId, tbCoupon.classifyId) &&
-                Objects.equals(areaId, tbCoupon.areaId) &&
-                Objects.equals(isShow, tbCoupon.isShow) &&
-                Objects.equals(couponType, tbCoupon.couponType) &&
-                Objects.equals(couponValue, tbCoupon.couponValue) &&
-                Objects.equals(startTime, tbCoupon.startTime) &&
-                Objects.equals(endTime, tbCoupon.endTime) &&
-                Objects.equals(validDate, tbCoupon.validDate) &&
-                Objects.equals(outDate, tbCoupon.outDate) &&
-                Objects.equals(createman, tbCoupon.createman) &&
-                Objects.equals(createtime, tbCoupon.createtime) &&
-                Objects.equals(lastaltertime, tbCoupon.lastaltertime) &&
-                Objects.equals(lastalterman, tbCoupon.lastalterman) &&
-                Objects.equals(status, tbCoupon.status) &&
-                Objects.equals(remark, tbCoupon.remark) &&
-                Objects.equals(needKnow, tbCoupon.needKnow) &&
-                Objects.equals(couponNum, tbCoupon.couponNum) &&
-                Objects.equals(isPutaway, tbCoupon.isPutaway) &&
-                Objects.equals(limitNum, tbCoupon.limitNum) &&
-                Objects.equals(limitWay, tbCoupon.limitWay) &&
-                Objects.equals(leve1Id, tbCoupon.leve1Id) &&
-                Objects.equals(appointType, tbCoupon.appointType) &&
-                Objects.equals(appointDate, tbCoupon.appointDate) &&
-                Objects.equals(limitBeginTime, tbCoupon.limitBeginTime);
+        TbCoupon coupon = (TbCoupon) o;
+        return couponId == coupon.couponId &&
+                Objects.equals(couponName, coupon.couponName) &&
+                Objects.equals(title, coupon.title) &&
+                Objects.equals(couponImg, coupon.couponImg) &&
+                Objects.equals(intro, coupon.intro) &&
+                Objects.equals(shopId, coupon.shopId) &&
+                Objects.equals(weight, coupon.weight) &&
+                Objects.equals(classifyId, coupon.classifyId) &&
+                Objects.equals(areaId, coupon.areaId) &&
+                Objects.equals(isShow, coupon.isShow) &&
+                Objects.equals(couponType, coupon.couponType) &&
+                Objects.equals(startTime, coupon.startTime) &&
+                Objects.equals(endTime, coupon.endTime) &&
+                Objects.equals(outDate, coupon.outDate) &&
+                Objects.equals(createman, coupon.createman) &&
+                Objects.equals(createtime, coupon.createtime) &&
+                Objects.equals(lastaltertime, coupon.lastaltertime) &&
+                Objects.equals(lastalterman, coupon.lastalterman) &&
+                Objects.equals(status, coupon.status) &&
+                Objects.equals(remark, coupon.remark) &&
+                Objects.equals(needKnow, coupon.needKnow) &&
+                Objects.equals(couponNum, coupon.couponNum) &&
+                Objects.equals(isPutaway, coupon.isPutaway) &&
+                Objects.equals(limitNum, coupon.limitNum) &&
+                Objects.equals(limitWay, coupon.limitWay) &&
+                Objects.equals(leve1Id, coupon.leve1Id) &&
+                Objects.equals(appointType, coupon.appointType) &&
+                Objects.equals(appointDate, coupon.appointDate) &&
+                Objects.equals(limitBeginTime, coupon.limitBeginTime) &&
+                Objects.equals(getType, coupon.getType) &&
+                Objects.equals(couponPrice, coupon.couponPrice) &&
+                Objects.equals(countGet, coupon.countGet);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(couponId, couponName, title, couponImg, intro, shopId, weight, classifyId, areaId, isShow, couponType, couponValue, startTime, endTime, validDate, outDate, createman, createtime, lastaltertime, lastalterman, status, remark, needKnow, couponNum, isPutaway, limitNum, limitWay, leve1Id, appointType, appointDate, limitBeginTime);
+        return Objects.hash(couponId, couponName, title, couponImg, intro, shopId, weight, classifyId, areaId, isShow, couponType, startTime, endTime, outDate, createman, createtime, lastaltertime, lastalterman, status, remark, needKnow, couponNum, isPutaway, limitNum, limitWay, leve1Id, appointType, appointDate, limitBeginTime, getType, couponPrice, countGet);
     }
 }

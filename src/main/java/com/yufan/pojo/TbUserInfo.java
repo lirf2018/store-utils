@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * @description:
  * @author: lirf
- * @time: 2021/5/15
+ * @time: 2021/6/14
  */
 @Entity
 @Table(name = "tb_user_info", schema = "store_db", catalog = "")
@@ -36,7 +36,8 @@ public class TbUserInfo {
     private String inviterNum;
     private Integer inviterJf;
     private BigDecimal inviterMoney;
-
+    private Integer jifen;
+    private Integer tuijianCount;
 
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Id
@@ -269,38 +270,60 @@ public class TbUserInfo {
         this.inviterMoney = inviterMoney;
     }
 
+    @Basic
+    @Column(name = "jifen", nullable = true)
+    public Integer getJifen() {
+        return jifen;
+    }
+
+    public void setJifen(Integer jifen) {
+        this.jifen = jifen;
+    }
+
+    @Basic
+    @Column(name = "tuijian_count", nullable = true)
+    public Integer getTuijianCount() {
+        return tuijianCount;
+    }
+
+    public void setTuijianCount(Integer tuijianCount) {
+        this.tuijianCount = tuijianCount;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TbUserInfo that = (TbUserInfo) o;
-        return userId == that.userId &&
-                userState == that.userState &&
-                Objects.equals(loginName, that.loginName) &&
-                Objects.equals(loginPass, that.loginPass) &&
-                Objects.equals(loginPassShow, that.loginPassShow) &&
-                Objects.equals(nickName, that.nickName) &&
-                Objects.equals(userEmail, that.userEmail) &&
-                Objects.equals(emailValite, that.emailValite) &&
-                Objects.equals(userMobile, that.userMobile) &&
-                Objects.equals(mobileValite, that.mobileValite) &&
-                Objects.equals(logCount, that.logCount) &&
-                Objects.equals(createtime, that.createtime) &&
-                Objects.equals(lastlogintime, that.lastlogintime) &&
-                Objects.equals(lastaltertime, that.lastaltertime) &&
-                Objects.equals(userImg, that.userImg) &&
-                Objects.equals(shopId, that.shopId) &&
-                Objects.equals(memberId, that.memberId) &&
-                Objects.equals(money, that.money) &&
-                Objects.equals(startTime, that.startTime) &&
-                Objects.equals(endTime, that.endTime) &&
-                Objects.equals(inviterNum, that.inviterNum) &&
-                Objects.equals(inviterJf, that.inviterJf) &&
-                Objects.equals(inviterMoney, that.inviterMoney);
+        TbUserInfo userInfo = (TbUserInfo) o;
+        return userId == userInfo.userId &&
+                userState == userInfo.userState &&
+                Objects.equals(loginName, userInfo.loginName) &&
+                Objects.equals(loginPass, userInfo.loginPass) &&
+                Objects.equals(loginPassShow, userInfo.loginPassShow) &&
+                Objects.equals(nickName, userInfo.nickName) &&
+                Objects.equals(userEmail, userInfo.userEmail) &&
+                Objects.equals(emailValite, userInfo.emailValite) &&
+                Objects.equals(userMobile, userInfo.userMobile) &&
+                Objects.equals(mobileValite, userInfo.mobileValite) &&
+                Objects.equals(logCount, userInfo.logCount) &&
+                Objects.equals(createtime, userInfo.createtime) &&
+                Objects.equals(lastlogintime, userInfo.lastlogintime) &&
+                Objects.equals(lastaltertime, userInfo.lastaltertime) &&
+                Objects.equals(userImg, userInfo.userImg) &&
+                Objects.equals(shopId, userInfo.shopId) &&
+                Objects.equals(memberId, userInfo.memberId) &&
+                Objects.equals(money, userInfo.money) &&
+                Objects.equals(startTime, userInfo.startTime) &&
+                Objects.equals(endTime, userInfo.endTime) &&
+                Objects.equals(inviterNum, userInfo.inviterNum) &&
+                Objects.equals(inviterJf, userInfo.inviterJf) &&
+                Objects.equals(inviterMoney, userInfo.inviterMoney) &&
+                Objects.equals(jifen, userInfo.jifen) &&
+                Objects.equals(tuijianCount, userInfo.tuijianCount);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, loginName, loginPass, loginPassShow, nickName, userEmail, emailValite, userMobile, mobileValite, logCount, userState, createtime, lastlogintime, lastaltertime, userImg, shopId, memberId, money, startTime, endTime, inviterNum, inviterJf, inviterMoney);
+        return Objects.hash(userId, loginName, loginPass, loginPassShow, nickName, userEmail, emailValite, userMobile, mobileValite, logCount, userState, createtime, lastlogintime, lastaltertime, userImg, shopId, memberId, money, startTime, endTime, inviterNum, inviterJf, inviterMoney, jifen, tuijianCount);
     }
 }

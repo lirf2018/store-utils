@@ -8,23 +8,37 @@ import java.util.Objects;
 /**
  * @description:
  * @author: lirf
- * @time: 2021/5/16
+ * @time: 2021/6/15
  */
 @Entity
 @Table(name = "tb_coupon_down_qr", schema = "store_db", catalog = "")
 public class TbCouponDownQr {
     private int id;
-    private Integer couponId;
+    private int couponId;
+    private String couponName;
+    private String title;
+    private String couponImg;
+    private String intro;
+    private Integer classifyId;
+    private Integer couponType;
+    private Integer leve1Id;
+    private String couponValue;
+    private Integer shopId;
+    private String qrDesc;
+    private Integer getType;
+    private BigDecimal couponPrice;
+    private String needKnow;
+    private Integer appointType;
+    private Timestamp changeOutDate;
+    private Timestamp changeDate;
     private Integer userId;
     private Integer channelId;
     private String qrImg;
     private String changeCode;
     private String checkCode;
     private String content;
-    private Timestamp startTime;
-    private Timestamp endTime;
+    private Timestamp qrCodeOuttime;
     private Integer recodeState;
-    private Timestamp changeDate;
     private Integer changeUserId;
     private Integer changePartnersId;
     private String createman;
@@ -33,10 +47,6 @@ public class TbCouponDownQr {
     private String lastalterman;
     private Integer status;
     private String remark;
-    private Integer couponType;
-    private BigDecimal couponValue;
-    private Integer shopId;
-    private String qrDesc;
 
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Id
@@ -50,13 +60,173 @@ public class TbCouponDownQr {
     }
 
     @Basic
-    @Column(name = "coupon_id", nullable = true)
-    public Integer getCouponId() {
+    @Column(name = "coupon_id", nullable = false)
+    public int getCouponId() {
         return couponId;
     }
 
-    public void setCouponId(Integer couponId) {
+    public void setCouponId(int couponId) {
         this.couponId = couponId;
+    }
+
+    @Basic
+    @Column(name = "coupon_name", nullable = true, length = 50)
+    public String getCouponName() {
+        return couponName;
+    }
+
+    public void setCouponName(String couponName) {
+        this.couponName = couponName;
+    }
+
+    @Basic
+    @Column(name = "title", nullable = true, length = 50)
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @Basic
+    @Column(name = "coupon_img", nullable = true, length = 100)
+    public String getCouponImg() {
+        return couponImg;
+    }
+
+    public void setCouponImg(String couponImg) {
+        this.couponImg = couponImg;
+    }
+
+    @Basic
+    @Column(name = "intro", nullable = true, length = 255)
+    public String getIntro() {
+        return intro;
+    }
+
+    public void setIntro(String intro) {
+        this.intro = intro;
+    }
+
+    @Basic
+    @Column(name = "classify_id", nullable = true)
+    public Integer getClassifyId() {
+        return classifyId;
+    }
+
+    public void setClassifyId(Integer classifyId) {
+        this.classifyId = classifyId;
+    }
+
+    @Basic
+    @Column(name = "coupon_type", nullable = true)
+    public Integer getCouponType() {
+        return couponType;
+    }
+
+    public void setCouponType(Integer couponType) {
+        this.couponType = couponType;
+    }
+
+    @Basic
+    @Column(name = "leve1_id", nullable = true)
+    public Integer getLeve1Id() {
+        return leve1Id;
+    }
+
+    public void setLeve1Id(Integer leve1Id) {
+        this.leve1Id = leve1Id;
+    }
+
+    @Basic
+    @Column(name = "coupon_value", nullable = true, length = 50)
+    public String getCouponValue() {
+        return couponValue;
+    }
+
+    public void setCouponValue(String couponValue) {
+        this.couponValue = couponValue;
+    }
+
+    @Basic
+    @Column(name = "shop_id", nullable = true)
+    public Integer getShopId() {
+        return shopId;
+    }
+
+    public void setShopId(Integer shopId) {
+        this.shopId = shopId;
+    }
+
+    @Basic
+    @Column(name = "qr_desc", nullable = true, length = 255)
+    public String getQrDesc() {
+        return qrDesc;
+    }
+
+    public void setQrDesc(String qrDesc) {
+        this.qrDesc = qrDesc;
+    }
+
+    @Basic
+    @Column(name = "get_type", nullable = true)
+    public Integer getGetType() {
+        return getType;
+    }
+
+    public void setGetType(Integer getType) {
+        this.getType = getType;
+    }
+
+    @Basic
+    @Column(name = "coupon_price", nullable = true, precision = 2)
+    public BigDecimal getCouponPrice() {
+        return couponPrice;
+    }
+
+    public void setCouponPrice(BigDecimal couponPrice) {
+        this.couponPrice = couponPrice;
+    }
+
+    @Basic
+    @Column(name = "need_know", nullable = true, length = 255)
+    public String getNeedKnow() {
+        return needKnow;
+    }
+
+    public void setNeedKnow(String needKnow) {
+        this.needKnow = needKnow;
+    }
+
+    @Basic
+    @Column(name = "appoint_type", nullable = true)
+    public Integer getAppointType() {
+        return appointType;
+    }
+
+    public void setAppointType(Integer appointType) {
+        this.appointType = appointType;
+    }
+
+    @Basic
+    @Column(name = "change_out_date", nullable = true)
+    public Timestamp getChangeOutDate() {
+        return changeOutDate;
+    }
+
+    public void setChangeOutDate(Timestamp changeOutDate) {
+        this.changeOutDate = changeOutDate;
+    }
+
+    @Basic
+    @Column(name = "change_date", nullable = true)
+    public Timestamp getChangeDate() {
+        return changeDate;
+    }
+
+    public void setChangeDate(Timestamp changeDate) {
+        this.changeDate = changeDate;
     }
 
     @Basic
@@ -120,23 +290,13 @@ public class TbCouponDownQr {
     }
 
     @Basic
-    @Column(name = "start_time", nullable = true)
-    public Timestamp getStartTime() {
-        return startTime;
+    @Column(name = "qr_code_outtime", nullable = true)
+    public Timestamp getQrCodeOuttime() {
+        return qrCodeOuttime;
     }
 
-    public void setStartTime(Timestamp startTime) {
-        this.startTime = startTime;
-    }
-
-    @Basic
-    @Column(name = "end_time", nullable = true)
-    public Timestamp getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Timestamp endTime) {
-        this.endTime = endTime;
+    public void setQrCodeOuttime(Timestamp qrCodeOuttime) {
+        this.qrCodeOuttime = qrCodeOuttime;
     }
 
     @Basic
@@ -147,16 +307,6 @@ public class TbCouponDownQr {
 
     public void setRecodeState(Integer recodeState) {
         this.recodeState = recodeState;
-    }
-
-    @Basic
-    @Column(name = "change_date", nullable = true)
-    public Timestamp getChangeDate() {
-        return changeDate;
-    }
-
-    public void setChangeDate(Timestamp changeDate) {
-        this.changeDate = changeDate;
     }
 
     @Basic
@@ -239,63 +389,37 @@ public class TbCouponDownQr {
         this.remark = remark;
     }
 
-    @Basic
-    @Column(name = "coupon_type", nullable = true)
-    public Integer getCouponType() {
-        return couponType;
-    }
-
-    public void setCouponType(Integer couponType) {
-        this.couponType = couponType;
-    }
-
-    @Basic
-    @Column(name = "coupon_value", nullable = true, precision = 2)
-    public BigDecimal getCouponValue() {
-        return couponValue;
-    }
-
-    public void setCouponValue(BigDecimal couponValue) {
-        this.couponValue = couponValue;
-    }
-
-    @Basic
-    @Column(name = "shop_id", nullable = true)
-    public Integer getShopId() {
-        return shopId;
-    }
-
-    public void setShopId(Integer shopId) {
-        this.shopId = shopId;
-    }
-
-    @Basic
-    @Column(name = "qr_desc", nullable = true, length = 255)
-    public String getQrDesc() {
-        return qrDesc;
-    }
-
-    public void setQrDesc(String qrDesc) {
-        this.qrDesc = qrDesc;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TbCouponDownQr that = (TbCouponDownQr) o;
         return id == that.id &&
-                Objects.equals(couponId, that.couponId) &&
+                couponId == that.couponId &&
+                Objects.equals(couponName, that.couponName) &&
+                Objects.equals(title, that.title) &&
+                Objects.equals(couponImg, that.couponImg) &&
+                Objects.equals(intro, that.intro) &&
+                Objects.equals(classifyId, that.classifyId) &&
+                Objects.equals(couponType, that.couponType) &&
+                Objects.equals(leve1Id, that.leve1Id) &&
+                Objects.equals(couponValue, that.couponValue) &&
+                Objects.equals(shopId, that.shopId) &&
+                Objects.equals(qrDesc, that.qrDesc) &&
+                Objects.equals(getType, that.getType) &&
+                Objects.equals(couponPrice, that.couponPrice) &&
+                Objects.equals(needKnow, that.needKnow) &&
+                Objects.equals(appointType, that.appointType) &&
+                Objects.equals(changeOutDate, that.changeOutDate) &&
+                Objects.equals(changeDate, that.changeDate) &&
                 Objects.equals(userId, that.userId) &&
                 Objects.equals(channelId, that.channelId) &&
                 Objects.equals(qrImg, that.qrImg) &&
                 Objects.equals(changeCode, that.changeCode) &&
                 Objects.equals(checkCode, that.checkCode) &&
                 Objects.equals(content, that.content) &&
-                Objects.equals(startTime, that.startTime) &&
-                Objects.equals(endTime, that.endTime) &&
+                Objects.equals(qrCodeOuttime, that.qrCodeOuttime) &&
                 Objects.equals(recodeState, that.recodeState) &&
-                Objects.equals(changeDate, that.changeDate) &&
                 Objects.equals(changeUserId, that.changeUserId) &&
                 Objects.equals(changePartnersId, that.changePartnersId) &&
                 Objects.equals(createman, that.createman) &&
@@ -303,15 +427,11 @@ public class TbCouponDownQr {
                 Objects.equals(lastaltertime, that.lastaltertime) &&
                 Objects.equals(lastalterman, that.lastalterman) &&
                 Objects.equals(status, that.status) &&
-                Objects.equals(remark, that.remark) &&
-                Objects.equals(couponType, that.couponType) &&
-                Objects.equals(couponValue, that.couponValue) &&
-                Objects.equals(shopId, that.shopId) &&
-                Objects.equals(qrDesc, that.qrDesc);
+                Objects.equals(remark, that.remark);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, couponId, userId, channelId, qrImg, changeCode, checkCode, content, startTime, endTime, recodeState, changeDate, changeUserId, changePartnersId, createman, createtime, lastaltertime, lastalterman, status, remark, couponType, couponValue, shopId, qrDesc);
+        return Objects.hash(id, couponId, couponName, title, couponImg, intro, classifyId, couponType, leve1Id, couponValue, shopId, qrDesc, getType, couponPrice, needKnow, appointType, changeOutDate, changeDate, userId, channelId, qrImg, changeCode, checkCode, content, qrCodeOuttime, recodeState, changeUserId, changePartnersId, createman, createtime, lastaltertime, lastalterman, status, remark);
     }
 }
