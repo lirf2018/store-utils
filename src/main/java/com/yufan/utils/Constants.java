@@ -284,4 +284,9 @@ public class Constants {
         MAP_NAME.put("phoneValidType7", VALID_TYPE_7 + "");
     }
 
+    /**
+     * 业务类型
+     */
+    public static String BUSINESS_TYPE_1 = "change_qr_code";// 优惠券兑换
+
 }
