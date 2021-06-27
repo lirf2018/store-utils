@@ -6,9 +6,9 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 /**
- * 创建人: lirf
- * 创建时间:  2019/8/13 11:22
- * 功能介绍:
+ * @description:
+ * @author: lirf
+ * @time: 2021/6/20
  */
 @Entity
 @Table(name = "tb_goods", schema = "store_db", catalog = "")
@@ -60,6 +60,7 @@ public class TbGoods {
     private String barCodeShop;
     private Integer sellCount;
     private Integer isZiYin;
+    private String goodsKnow;
 
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Id
@@ -532,62 +533,73 @@ public class TbGoods {
         this.isZiYin = isZiYin;
     }
 
+    @Basic
+    @Column(name = "goods_know", nullable = true, length = 500)
+    public String getGoodsKnow() {
+        return goodsKnow;
+    }
+
+    public void setGoodsKnow(String goodsKnow) {
+        this.goodsKnow = goodsKnow;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TbGoods goods = (TbGoods) o;
-        return goodsId == goods.goodsId &&
-                Objects.equals(goodsName, goods.goodsName) &&
-                Objects.equals(title, goods.title) &&
-                Objects.equals(goodsImg, goods.goodsImg) &&
-                Objects.equals(trueMoney, goods.trueMoney) &&
-                Objects.equals(nowMoney, goods.nowMoney) &&
-                Objects.equals(intro, goods.intro) &&
-                Objects.equals(shopId, goods.shopId) &&
-                Objects.equals(isYuding, goods.isYuding) &&
-                Objects.equals(getWay, goods.getWay) &&
-                Objects.equals(isInvoice, goods.isInvoice) &&
-                Objects.equals(isPutaway, goods.isPutaway) &&
-                Objects.equals(dataIndex, goods.dataIndex) &&
-                Objects.equals(categoryId, goods.categoryId) &&
-                Objects.equals(areaId, goods.areaId) &&
-                Objects.equals(property, goods.property) &&
-                Objects.equals(startTime, goods.startTime) &&
-                Objects.equals(endTime, goods.endTime) &&
-                Objects.equals(goodsCode, goods.goodsCode) &&
-                Objects.equals(goodsUnit, goods.goodsUnit) &&
-                Objects.equals(isSingle, goods.isSingle) &&
-                Objects.equals(goodsNum, goods.goodsNum) &&
-                Objects.equals(isReturn, goods.isReturn) &&
-                Objects.equals(couponId, goods.couponId) &&
-                Objects.equals(createman, goods.createman) &&
-                Objects.equals(createtime, goods.createtime) &&
-                Objects.equals(lastaltertime, goods.lastaltertime) &&
-                Objects.equals(lastalterman, goods.lastalterman) &&
-                Objects.equals(status, goods.status) &&
-                Objects.equals(remark, goods.remark) &&
-                Objects.equals(goodsType, goods.goodsType) &&
-                Objects.equals(isPayOnline, goods.isPayOnline) &&
-                Objects.equals(outCode, goods.outCode) &&
-                Objects.equals(depositMoney, goods.depositMoney) &&
-                Objects.equals(peisongZcDesc, goods.peisongZcDesc) &&
-                Objects.equals(peisongPeiDesc, goods.peisongPeiDesc) &&
-                Objects.equals(purchasePrice, goods.purchasePrice) &&
-                Objects.equals(isTimeGoods, goods.isTimeGoods) &&
-                Objects.equals(limitNum, goods.limitNum) &&
-                Objects.equals(limitWay, goods.limitWay) &&
-                Objects.equals(limitBeginTime, goods.limitBeginTime) &&
-                Objects.equals(levelId, goods.levelId) &&
-                Objects.equals(advancePrice, goods.advancePrice) &&
-                Objects.equals(barCode, goods.barCode) &&
-                Objects.equals(barCodeShop, goods.barCodeShop) &&
-                Objects.equals(sellCount, goods.sellCount) &&
-                Objects.equals(isZiYin, goods.isZiYin);
+        TbGoods tbGoods = (TbGoods) o;
+        return goodsId == tbGoods.goodsId &&
+                Objects.equals(goodsName, tbGoods.goodsName) &&
+                Objects.equals(title, tbGoods.title) &&
+                Objects.equals(goodsImg, tbGoods.goodsImg) &&
+                Objects.equals(trueMoney, tbGoods.trueMoney) &&
+                Objects.equals(nowMoney, tbGoods.nowMoney) &&
+                Objects.equals(intro, tbGoods.intro) &&
+                Objects.equals(shopId, tbGoods.shopId) &&
+                Objects.equals(isYuding, tbGoods.isYuding) &&
+                Objects.equals(getWay, tbGoods.getWay) &&
+                Objects.equals(isInvoice, tbGoods.isInvoice) &&
+                Objects.equals(isPutaway, tbGoods.isPutaway) &&
+                Objects.equals(dataIndex, tbGoods.dataIndex) &&
+                Objects.equals(categoryId, tbGoods.categoryId) &&
+                Objects.equals(areaId, tbGoods.areaId) &&
+                Objects.equals(property, tbGoods.property) &&
+                Objects.equals(startTime, tbGoods.startTime) &&
+                Objects.equals(endTime, tbGoods.endTime) &&
+                Objects.equals(goodsCode, tbGoods.goodsCode) &&
+                Objects.equals(goodsUnit, tbGoods.goodsUnit) &&
+                Objects.equals(isSingle, tbGoods.isSingle) &&
+                Objects.equals(goodsNum, tbGoods.goodsNum) &&
+                Objects.equals(isReturn, tbGoods.isReturn) &&
+                Objects.equals(couponId, tbGoods.couponId) &&
+                Objects.equals(createman, tbGoods.createman) &&
+                Objects.equals(createtime, tbGoods.createtime) &&
+                Objects.equals(lastaltertime, tbGoods.lastaltertime) &&
+                Objects.equals(lastalterman, tbGoods.lastalterman) &&
+                Objects.equals(status, tbGoods.status) &&
+                Objects.equals(remark, tbGoods.remark) &&
+                Objects.equals(goodsType, tbGoods.goodsType) &&
+                Objects.equals(isPayOnline, tbGoods.isPayOnline) &&
+                Objects.equals(outCode, tbGoods.outCode) &&
+                Objects.equals(depositMoney, tbGoods.depositMoney) &&
+                Objects.equals(peisongZcDesc, tbGoods.peisongZcDesc) &&
+                Objects.equals(peisongPeiDesc, tbGoods.peisongPeiDesc) &&
+                Objects.equals(purchasePrice, tbGoods.purchasePrice) &&
+                Objects.equals(isTimeGoods, tbGoods.isTimeGoods) &&
+                Objects.equals(limitNum, tbGoods.limitNum) &&
+                Objects.equals(limitWay, tbGoods.limitWay) &&
+                Objects.equals(limitBeginTime, tbGoods.limitBeginTime) &&
+                Objects.equals(levelId, tbGoods.levelId) &&
+                Objects.equals(advancePrice, tbGoods.advancePrice) &&
+                Objects.equals(barCode, tbGoods.barCode) &&
+                Objects.equals(barCodeShop, tbGoods.barCodeShop) &&
+                Objects.equals(sellCount, tbGoods.sellCount) &&
+                Objects.equals(isZiYin, tbGoods.isZiYin) &&
+                Objects.equals(goodsKnow, tbGoods.goodsKnow);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(goodsId, goodsName, title, goodsImg, trueMoney, nowMoney, intro, shopId, isYuding, getWay, isInvoice, isPutaway, dataIndex, categoryId, areaId, property, startTime, endTime, goodsCode, goodsUnit, isSingle, goodsNum, isReturn, couponId, createman, createtime, lastaltertime, lastalterman, status, remark, goodsType, isPayOnline, outCode, depositMoney, peisongZcDesc, peisongPeiDesc, purchasePrice, isTimeGoods, limitNum, limitWay, limitBeginTime, levelId, advancePrice, barCode, barCodeShop, sellCount, isZiYin);
+        return Objects.hash(goodsId, goodsName, title, goodsImg, trueMoney, nowMoney, intro, shopId, isYuding, getWay, isInvoice, isPutaway, dataIndex, categoryId, areaId, property, startTime, endTime, goodsCode, goodsUnit, isSingle, goodsNum, isReturn, couponId, createman, createtime, lastaltertime, lastalterman, status, remark, goodsType, isPayOnline, outCode, depositMoney, peisongZcDesc, peisongPeiDesc, purchasePrice, isTimeGoods, limitNum, limitWay, limitBeginTime, levelId, advancePrice, barCode, barCodeShop, sellCount, isZiYin, goodsKnow);
     }
 }

@@ -1,13 +1,12 @@
 package com.yufan.pojo;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.util.Objects;
 
 /**
- * 创建人: lirf
- * 创建时间:  2019/7/22 11:55
- * 功能介绍:
+ * @description:
+ * @author: lirf
+ * @time: 2021/6/24
  */
 @Entity
 @Table(name = "tb_order_detail_property", schema = "store_db", catalog = "")
@@ -18,6 +17,7 @@ public class TbOrderDetailProperty {
     private String propertyKey;
     private String propertyValue;
     private String remark;
+    private Integer propertyType;
 
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Id
@@ -70,7 +70,6 @@ public class TbOrderDetailProperty {
         this.propertyValue = propertyValue;
     }
 
-
     @Basic
     @Column(name = "remark", nullable = true, length = 5)
     public String getRemark() {
@@ -79,6 +78,16 @@ public class TbOrderDetailProperty {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    @Basic
+    @Column(name = "property_type", nullable = true)
+    public Integer getPropertyType() {
+        return propertyType;
+    }
+
+    public void setPropertyType(Integer propertyType) {
+        this.propertyType = propertyType;
     }
 
     @Override
@@ -91,12 +100,12 @@ public class TbOrderDetailProperty {
                 Objects.equals(detailId, that.detailId) &&
                 Objects.equals(propertyKey, that.propertyKey) &&
                 Objects.equals(propertyValue, that.propertyValue) &&
-                Objects.equals(remark, that.remark);
+                Objects.equals(remark, that.remark) &&
+                Objects.equals(propertyType, that.propertyType);
     }
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(propertyId, orderId, detailId, propertyKey, propertyValue, remark);
+        return Objects.hash(propertyId, orderId, detailId, propertyKey, propertyValue, remark, propertyType);
     }
 }

@@ -116,13 +116,18 @@ public enum ResultCode {
     GOODS_OUTTIME_ERROR(10064, "商品已失效"),
     TIMEGOODS_OUTTIME_ERROR(10065, "商品抢购活动已结束"),
     TIMEGOODS_STORE_EMPTY(10066, "抢购商品库存不足"),
-    LIMIT_GOODS_RULE(10067, "不满足限购商品规则"),
+    LIMIT_GOODS_RULE(10067, "部分商品不满足限购规则"),
     GOODS_SKU_NEED(10068, "请选择商品规格"),
     USER_UNLOGIN(401, "用户未登录"),
     MEMBERNUM_IS_BANG(10069, "会员号已被绑定"),
     MEMBERNUM_NOT_EXIST(10070, "会员号不存在"),
     DATE_NOT_EXIST(10071, "当前日期不存在"),
-    COUPON_NOT_EXIST(10072, "卡券已下架");
+    COUPON_NOT_EXIST(10072, "卡券已下架"),
+    COUPONQR_IS_EXIST(10073, "请勿重复领取"),
+    COUPONQR_QOWM_FAIL(10074, "超出限制领取数量"),
+    LIMIT_COUPON_RULE(10075, "不满足领取规则"),
+    ORDER_STATUS_CANTNOT(10076, "订单数据不存在或者订单状态不满足生成条件"),
+    ORDER_CONDITION_UNCREATE(10077, "当前订单不满足生成条件");
 
 
     private int resp_code;

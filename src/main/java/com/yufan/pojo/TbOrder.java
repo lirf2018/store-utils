@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * @description:
  * @author: lirf
- * @time: 2021/2/28
+ * @time: 2021/6/26
  */
 @Entity
 @Table(name = "tb_order", schema = "store_db", catalog = "")

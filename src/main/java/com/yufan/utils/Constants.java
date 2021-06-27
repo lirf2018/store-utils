@@ -288,5 +288,6 @@ public class Constants {
      * 业务类型
      */
     public static String BUSINESS_TYPE_1 = "change_qr_code";// 优惠券兑换
+    public static String BUSINESS_TYPE_2 = "create_private_goods";// 生成私人定制数据
 
 }

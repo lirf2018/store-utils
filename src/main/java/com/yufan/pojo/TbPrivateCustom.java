@@ -7,14 +7,16 @@ import java.util.Objects;
 /**
  * @description:
  * @author: lirf
- * @time: 2021/6/6
+ * @time: 2021/6/27
  */
 @Entity
 @Table(name = "tb_private_custom", schema = "store_db", catalog = "")
 public class TbPrivateCustom {
     private int id;
+    private Integer userId;
     private Timestamp payTime;
     private String privateCode;
+    private Integer relType;
     private Timestamp reservationTime;
     private Timestamp createTime;
     private Timestamp updateTime;
@@ -23,7 +25,11 @@ public class TbPrivateCustom {
     private Timestamp getTime;
     private Byte postWay;
     private Byte isYuyue;
-    private Integer userId;
+    private Integer flowStatus;
+    private Integer goodsId;
+    private String goodsName;
+    private Integer skuId;
+    private Integer yuyueCount;
 
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Id
@@ -34,6 +40,16 @@ public class TbPrivateCustom {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Basic
+    @Column(name = "user_id", nullable = true)
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     @Basic
@@ -54,6 +70,16 @@ public class TbPrivateCustom {
 
     public void setPrivateCode(String privateCode) {
         this.privateCode = privateCode;
+    }
+
+    @Basic
+    @Column(name = "rel_type", nullable = true)
+    public Integer getRelType() {
+        return relType;
+    }
+
+    public void setRelType(Integer relType) {
+        this.relType = relType;
     }
 
     @Basic
@@ -97,7 +123,7 @@ public class TbPrivateCustom {
     }
 
     @Basic
-    @Column(name = "contents", nullable = true, length = 255)
+    @Column(name = "contents", nullable = true, length = -1)
     public String getContents() {
         return contents;
     }
@@ -137,36 +163,82 @@ public class TbPrivateCustom {
     }
 
     @Basic
-    @Column(name = "user_id", nullable = true)
-    public Integer getUserId() {
-        return userId;
+    @Column(name = "flow_status", nullable = true)
+    public Integer getFlowStatus() {
+        return flowStatus;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setFlowStatus(Integer flowStatus) {
+        this.flowStatus = flowStatus;
+    }
+
+    @Basic
+    @Column(name = "goods_id", nullable = true)
+    public Integer getGoodsId() {
+        return goodsId;
+    }
+
+    public void setGoodsId(Integer goodsId) {
+        this.goodsId = goodsId;
+    }
+
+    @Basic
+    @Column(name = "goods_name", nullable = true, length = 100)
+    public String getGoodsName() {
+        return goodsName;
+    }
+
+    public void setGoodsName(String goodsName) {
+        this.goodsName = goodsName;
+    }
+
+    @Basic
+    @Column(name = "sku_id", nullable = true)
+    public Integer getSkuId() {
+        return skuId;
+    }
+
+    public void setSkuId(Integer skuId) {
+        this.skuId = skuId;
+    }
+
+    @Basic
+    @Column(name = "yuyue_count", nullable = true)
+    public Integer getYuyueCount() {
+        return yuyueCount;
+    }
+
+    public void setYuyueCount(Integer yuyueCount) {
+        this.yuyueCount = yuyueCount;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TbPrivateCustom that = (TbPrivateCustom) o;
-        return id == that.id &&
-                Objects.equals(payTime, that.payTime) &&
-                Objects.equals(privateCode, that.privateCode) &&
-                Objects.equals(reservationTime, that.reservationTime) &&
-                Objects.equals(createTime, that.createTime) &&
-                Objects.equals(updateTime, that.updateTime) &&
-                Objects.equals(status, that.status) &&
-                Objects.equals(contents, that.contents) &&
-                Objects.equals(getTime, that.getTime) &&
-                Objects.equals(postWay, that.postWay) &&
-                Objects.equals(isYuyue, that.isYuyue) &&
-                Objects.equals(userId, that.userId);
+        TbPrivateCustom custom = (TbPrivateCustom) o;
+        return id == custom.id &&
+                Objects.equals(userId, custom.userId) &&
+                Objects.equals(payTime, custom.payTime) &&
+                Objects.equals(privateCode, custom.privateCode) &&
+                Objects.equals(relType, custom.relType) &&
+                Objects.equals(reservationTime, custom.reservationTime) &&
+                Objects.equals(createTime, custom.createTime) &&
+                Objects.equals(updateTime, custom.updateTime) &&
+                Objects.equals(status, custom.status) &&
+                Objects.equals(contents, custom.contents) &&
+                Objects.equals(getTime, custom.getTime) &&
+                Objects.equals(postWay, custom.postWay) &&
+                Objects.equals(isYuyue, custom.isYuyue) &&
+                Objects.equals(flowStatus, custom.flowStatus) &&
+                Objects.equals(goodsId, custom.goodsId) &&
+                Objects.equals(goodsName, custom.goodsName) &&
+                Objects.equals(skuId, custom.skuId) &&
+                Objects.equals(yuyueCount, custom.yuyueCount);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, payTime, privateCode, reservationTime, createTime, updateTime, status, contents, getTime, postWay, isYuyue, userId);
+        return Objects.hash(id, userId, payTime, privateCode, relType, reservationTime, createTime, updateTime, status, contents, getTime, postWay, isYuyue, flowStatus, goodsId, goodsName, skuId, yuyueCount);
     }
 }

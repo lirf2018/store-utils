@@ -16,11 +16,34 @@ public class DatetimeUtil {
 
     private final static Logger log = Logger.getLogger(DatetimeUtil.class);
 
+    /**
+     * yyyy-MM-dd HH:mm:ss
+     */
     public static String DEFAULT_DATE_FORMAT_STRING = "yyyy-MM-dd HH:mm:ss";
+
+    /**
+     * yyyy-MM-dd
+     */
     public static String DEFAULT_DATE_FORMAT = "yyyy-MM-dd";
+
+    /**
+     * yyyyMMdd
+     */
     public static String DEFAULT_DATE_FORMAT_LONG = "yyyyMMdd";
+
+    /**
+     * yyyy-MM-dd HH:mm
+     */
     public static String DEFAULT_DATE_FORMAT_MINUTE = "yyyy-MM-dd HH:mm";
+
+    /**
+     * yyyyMMddHHmmss
+     */
     public static String DEFAULT_DATE_FORMAT_ALL = "yyyyMMddHHmmss";
+
+    /**
+     * HH:mm
+     */
     public static String DEFAULT_DATE_TIME = "HH:mm";
 
     /**

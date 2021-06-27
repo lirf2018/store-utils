@@ -6,9 +6,9 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 /**
- * 创建人: lirf
- * 创建时间:  2019/8/9 17:44
- * 功能介绍:
+ * @description:
+ * @author: lirf
+ * @time: 2021/6/23
  */
 @Entity
 @Table(name = "tb_order_detail", schema = "store_db", catalog = "")
@@ -44,6 +44,8 @@ public class TbOrderDetail {
     private Integer cartId;
     private Integer timeGoodsId;
     private String goodsSpecNameStr;
+    private Integer skuId;
+    private String goodsIntro;
 
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Id
@@ -356,47 +358,68 @@ public class TbOrderDetail {
         this.goodsSpecNameStr = goodsSpecNameStr;
     }
 
+    @Basic
+    @Column(name = "sku_id", nullable = true)
+    public Integer getSkuId() {
+        return skuId;
+    }
+
+    public void setSkuId(Integer skuId) {
+        this.skuId = skuId;
+    }
+
+    @Basic
+    @Column(name = "goods_intro", nullable = true, length = -1)
+    public String getGoodsIntro() {
+        return goodsIntro;
+    }
+
+    public void setGoodsIntro(String goodsIntro) {
+        this.goodsIntro = goodsIntro;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TbOrderDetail that = (TbOrderDetail) o;
-        return detailId == that.detailId &&
-                Objects.equals(orderId, that.orderId) &&
-                Objects.equals(goodsId, that.goodsId) &&
-                Objects.equals(goodsName, that.goodsName) &&
-                Objects.equals(goodsSpec, that.goodsSpec) &&
-                Objects.equals(goodsSpecName, that.goodsSpecName) &&
-                Objects.equals(goodsCount, that.goodsCount) &&
-                Objects.equals(saleMoney, that.saleMoney) &&
-                Objects.equals(goodsTrueMoney, that.goodsTrueMoney) &&
-                Objects.equals(goodsPurchasePrice, that.goodsPurchasePrice) &&
-                Objects.equals(timePrice, that.timePrice) &&
-                Objects.equals(depositPrice, that.depositPrice) &&
-                Objects.equals(shopId, that.shopId) &&
-                Objects.equals(shopName, that.shopName) &&
-                Objects.equals(outCode, that.outCode) &&
-                Objects.equals(getAddrId, that.getAddrId) &&
-                Objects.equals(getAddrName, that.getAddrName) &&
-                Objects.equals(getTime, that.getTime) &&
-                Objects.equals(backAddrId, that.backAddrId) &&
-                Objects.equals(backAddrName, that.backAddrName) &&
-                Objects.equals(backTime, that.backTime) &&
-                Objects.equals(detailStatus, that.detailStatus) &&
-                Objects.equals(isCoupon, that.isCoupon) &&
-                Objects.equals(createtime, that.createtime) &&
-                Objects.equals(lastaltertime, that.lastaltertime) &&
-                Objects.equals(lastalterman, that.lastalterman) &&
-                Objects.equals(remark, that.remark) &&
-                Objects.equals(goodsImg, that.goodsImg) &&
-                Objects.equals(cartId, that.cartId) &&
-                Objects.equals(timeGoodsId, that.timeGoodsId) &&
-                Objects.equals(goodsSpecNameStr, that.goodsSpecNameStr);
+        TbOrderDetail detail = (TbOrderDetail) o;
+        return detailId == detail.detailId &&
+                Objects.equals(orderId, detail.orderId) &&
+                Objects.equals(goodsId, detail.goodsId) &&
+                Objects.equals(goodsName, detail.goodsName) &&
+                Objects.equals(goodsSpec, detail.goodsSpec) &&
+                Objects.equals(goodsSpecName, detail.goodsSpecName) &&
+                Objects.equals(goodsCount, detail.goodsCount) &&
+                Objects.equals(saleMoney, detail.saleMoney) &&
+                Objects.equals(goodsTrueMoney, detail.goodsTrueMoney) &&
+                Objects.equals(goodsPurchasePrice, detail.goodsPurchasePrice) &&
+                Objects.equals(timePrice, detail.timePrice) &&
+                Objects.equals(depositPrice, detail.depositPrice) &&
+                Objects.equals(shopId, detail.shopId) &&
+                Objects.equals(shopName, detail.shopName) &&
+                Objects.equals(outCode, detail.outCode) &&
+                Objects.equals(getAddrId, detail.getAddrId) &&
+                Objects.equals(getAddrName, detail.getAddrName) &&
+                Objects.equals(getTime, detail.getTime) &&
+                Objects.equals(backAddrId, detail.backAddrId) &&
+                Objects.equals(backAddrName, detail.backAddrName) &&
+                Objects.equals(backTime, detail.backTime) &&
+                Objects.equals(detailStatus, detail.detailStatus) &&
+                Objects.equals(isCoupon, detail.isCoupon) &&
+                Objects.equals(createtime, detail.createtime) &&
+                Objects.equals(lastaltertime, detail.lastaltertime) &&
+                Objects.equals(lastalterman, detail.lastalterman) &&
+                Objects.equals(remark, detail.remark) &&
+                Objects.equals(goodsImg, detail.goodsImg) &&
+                Objects.equals(cartId, detail.cartId) &&
+                Objects.equals(timeGoodsId, detail.timeGoodsId) &&
+                Objects.equals(goodsSpecNameStr, detail.goodsSpecNameStr) &&
+                Objects.equals(skuId, detail.skuId) &&
+                Objects.equals(goodsIntro, detail.goodsIntro);
     }
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(detailId, orderId, goodsId, goodsName, goodsSpec, goodsSpecName, goodsCount, saleMoney, goodsTrueMoney, goodsPurchasePrice, timePrice, depositPrice, shopId, shopName, outCode, getAddrId, getAddrName, getTime, backAddrId, backAddrName, backTime, detailStatus, isCoupon, createtime, lastaltertime, lastalterman, remark, goodsImg, cartId, timeGoodsId, goodsSpecNameStr);
+        return Objects.hash(detailId, orderId, goodsId, goodsName, goodsSpec, goodsSpecName, goodsCount, saleMoney, goodsTrueMoney, goodsPurchasePrice, timePrice, depositPrice, shopId, shopName, outCode, getAddrId, getAddrName, getTime, backAddrId, backAddrName, backTime, detailStatus, isCoupon, createtime, lastaltertime, lastalterman, remark, goodsImg, cartId, timeGoodsId, goodsSpecNameStr, skuId, goodsIntro);
     }
 }
