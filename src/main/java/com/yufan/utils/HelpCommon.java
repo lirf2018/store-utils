@@ -4,10 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * @功能名称
@@ -222,5 +219,10 @@ public class HelpCommon {
             }
             return resultList;
         }
+    }
+
+    public static String uuid() {
+        String uuid = UUID.randomUUID().toString();
+        return uuid.replace("-", "");
     }
 }

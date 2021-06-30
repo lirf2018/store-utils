@@ -35,6 +35,7 @@ public enum ResultCode {
     GOODS_EXCEPTION_02(31, "sku数据异常"),
     ODE_CANTUSE_TIME(32, "QR码当前日期不可用"),
     INF_ACCOUNT_NOT_EXIST(33, "接口账号不存在"),
+    CODE_EXIST(34, "编码已存在"),
     OK(1, "成功"),
     FAIL(-1, "网络异常,请稍后重试"),
     PASS(-2, ""),
