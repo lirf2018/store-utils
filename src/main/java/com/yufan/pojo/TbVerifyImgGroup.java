@@ -7,7 +7,7 @@ import java.util.Objects;
 /**
  * @description:
  * @author: lirf
- * @time: 2021/6/28
+ * @time: 2021/7/3
  */
 @Entity
 @Table(name = "tb_verify_img_group", schema = "store_db", catalog = "")
@@ -18,6 +18,8 @@ public class TbVerifyImgGroup {
     private Integer status;
     private String createman;
     private Timestamp createtime;
+    private Integer similarType;
+    private String backImg;
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -80,6 +82,26 @@ public class TbVerifyImgGroup {
         this.createtime = createtime;
     }
 
+    @Basic
+    @Column(name = "similar_type", nullable = true)
+    public Integer getSimilarType() {
+        return similarType;
+    }
+
+    public void setSimilarType(Integer similarType) {
+        this.similarType = similarType;
+    }
+
+    @Basic
+    @Column(name = "back_img", nullable = true, length = 100)
+    public String getBackImg() {
+        return backImg;
+    }
+
+    public void setBackImg(String backImg) {
+        this.backImg = backImg;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -90,11 +112,13 @@ public class TbVerifyImgGroup {
                 Objects.equals(verifyTitle, that.verifyTitle) &&
                 Objects.equals(status, that.status) &&
                 Objects.equals(createman, that.createman) &&
-                Objects.equals(createtime, that.createtime);
+                Objects.equals(createtime, that.createtime) &&
+                Objects.equals(similarType, that.similarType) &&
+                Objects.equals(backImg, that.backImg);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, verifyCode, verifyTitle, status, createman, createtime);
+        return Objects.hash(id, verifyCode, verifyTitle, status, createman, createtime, similarType, backImg);
     }
 }

@@ -7,7 +7,7 @@ import java.util.Objects;
 /**
  * @description:
  * @author: lirf
- * @time: 2021/6/27
+ * @time: 2021/7/4
  */
 @Entity
 @Table(name = "tb_private_custom", schema = "store_db", catalog = "")
@@ -23,6 +23,7 @@ public class TbPrivateCustom {
     private Integer status;
     private String contents;
     private Timestamp getTime;
+    private String getTimeStr;
     private Byte postWay;
     private Byte isYuyue;
     private Integer flowStatus;
@@ -30,8 +31,10 @@ public class TbPrivateCustom {
     private String goodsName;
     private Integer skuId;
     private Integer yuyueCount;
+    private Integer indexSort;
+    private String getAddr;
 
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id", nullable = false)
     public int getId() {
@@ -143,6 +146,16 @@ public class TbPrivateCustom {
     }
 
     @Basic
+    @Column(name = "get_time_str", nullable = true, length = 50)
+    public String getGetTimeStr() {
+        return getTimeStr;
+    }
+
+    public void setGetTimeStr(String getTimeStr) {
+        this.getTimeStr = getTimeStr;
+    }
+
+    @Basic
     @Column(name = "post_way", nullable = true)
     public Byte getPostWay() {
         return postWay;
@@ -212,6 +225,26 @@ public class TbPrivateCustom {
         this.yuyueCount = yuyueCount;
     }
 
+    @Basic
+    @Column(name = "index_sort", nullable = true)
+    public Integer getIndexSort() {
+        return indexSort;
+    }
+
+    public void setIndexSort(Integer indexSort) {
+        this.indexSort = indexSort;
+    }
+
+    @Basic
+    @Column(name = "get_addr", nullable = true, length = 100)
+    public String getGetAddr() {
+        return getAddr;
+    }
+
+    public void setGetAddr(String getAddr) {
+        this.getAddr = getAddr;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -228,17 +261,20 @@ public class TbPrivateCustom {
                 Objects.equals(status, custom.status) &&
                 Objects.equals(contents, custom.contents) &&
                 Objects.equals(getTime, custom.getTime) &&
+                Objects.equals(getTimeStr, custom.getTimeStr) &&
                 Objects.equals(postWay, custom.postWay) &&
                 Objects.equals(isYuyue, custom.isYuyue) &&
                 Objects.equals(flowStatus, custom.flowStatus) &&
                 Objects.equals(goodsId, custom.goodsId) &&
                 Objects.equals(goodsName, custom.goodsName) &&
                 Objects.equals(skuId, custom.skuId) &&
-                Objects.equals(yuyueCount, custom.yuyueCount);
+                Objects.equals(yuyueCount, custom.yuyueCount) &&
+                Objects.equals(indexSort, custom.indexSort) &&
+                Objects.equals(getAddr, custom.getAddr);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userId, payTime, privateCode, relType, reservationTime, createTime, updateTime, status, contents, getTime, postWay, isYuyue, flowStatus, goodsId, goodsName, skuId, yuyueCount);
+        return Objects.hash(id, userId, payTime, privateCode, relType, reservationTime, createTime, updateTime, status, contents, getTime, getTimeStr, postWay, isYuyue, flowStatus, goodsId, goodsName, skuId, yuyueCount, indexSort, getAddr);
     }
 }
