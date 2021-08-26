@@ -58,7 +58,7 @@ public class Constants {
     /**
      * 数据状态
      */
-    public static int DATA_STATUS_WX = 0;//无效
+    public static int DATA_STATUS_WX = 0;//无效/已领取
     public static int DATA_STATUS_YX = 1;//有效
     public static int DATA_STATUS_DJ = 2;//已冻结
     public static int DATA_STATUS_DELETE = 3;//已删除

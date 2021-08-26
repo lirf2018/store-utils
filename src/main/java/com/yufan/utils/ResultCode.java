@@ -71,7 +71,7 @@ public enum ResultCode {
     GOODSINFO_MAX_OUT(10029, "商品种类数量超过上限"),
     ORDWE_PRICE_ERROR(10030, "订单价格计算有误"),
     ORDWE_COUNT_ERROR(10031, "订单数量计算有误"),
-    DISCOUNT_ERROR(10032, "优惠全券无效"),
+    DISCOUNT_ERROR(10032, "优惠券无效"),
     ORDER_ALONE_ERROR(10033, "符合独立订单规则"),
     ORDER_LIMIT_ERROR(10034, "不符合限购规则,或者超出限购数,请认真查看限购规则后,重新下单"),
     FAIL_GOODS_INVALIDATE(10035, "商品无效"),

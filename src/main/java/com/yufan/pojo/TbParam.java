@@ -5,9 +5,9 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 /**
- * 创建人: lirf
- * 创建时间:  2019/5/21 11:38
- * 功能介绍:
+ * @description:
+ * @author: lirf
+ * @time: 2021/8/22
  */
 @Entity
 @Table(name = "tb_param", schema = "store_db", catalog = "")
@@ -19,6 +19,10 @@ public class TbParam {
     private String paramValue;
     private String paramValue1;
     private String paramValue2;
+    private String paramValue3;
+    private String paramValue4;
+    private String paramValue5;
+    private String paramValue6;
     private String createman;
     private Timestamp createtime;
     private Integer status;
@@ -98,6 +102,46 @@ public class TbParam {
     }
 
     @Basic
+    @Column(name = "param_value3", nullable = true, length = 200)
+    public String getParamValue3() {
+        return paramValue3;
+    }
+
+    public void setParamValue3(String paramValue3) {
+        this.paramValue3 = paramValue3;
+    }
+
+    @Basic
+    @Column(name = "param_value4", nullable = true, length = 200)
+    public String getParamValue4() {
+        return paramValue4;
+    }
+
+    public void setParamValue4(String paramValue4) {
+        this.paramValue4 = paramValue4;
+    }
+
+    @Basic
+    @Column(name = "param_value5", nullable = true, length = 200)
+    public String getParamValue5() {
+        return paramValue5;
+    }
+
+    public void setParamValue5(String paramValue5) {
+        this.paramValue5 = paramValue5;
+    }
+
+    @Basic
+    @Column(name = "param_value6", nullable = true, length = -1)
+    public String getParamValue6() {
+        return paramValue6;
+    }
+
+    public void setParamValue6(String paramValue6) {
+        this.paramValue6 = paramValue6;
+    }
+
+    @Basic
     @Column(name = "createman", nullable = true, length = 100)
     public String getCreateman() {
         return createman;
@@ -169,6 +213,10 @@ public class TbParam {
                 Objects.equals(paramValue, param.paramValue) &&
                 Objects.equals(paramValue1, param.paramValue1) &&
                 Objects.equals(paramValue2, param.paramValue2) &&
+                Objects.equals(paramValue3, param.paramValue3) &&
+                Objects.equals(paramValue4, param.paramValue4) &&
+                Objects.equals(paramValue5, param.paramValue5) &&
+                Objects.equals(paramValue6, param.paramValue6) &&
                 Objects.equals(createman, param.createman) &&
                 Objects.equals(createtime, param.createtime) &&
                 Objects.equals(status, param.status) &&
@@ -179,6 +227,6 @@ public class TbParam {
 
     @Override
     public int hashCode() {
-        return Objects.hash(paramId, paramName, paramCode, paramKey, paramValue, paramValue1, paramValue2, createman, createtime, status, remark, isMakeSure, dataIndex);
+        return Objects.hash(paramId, paramName, paramCode, paramKey, paramValue, paramValue1, paramValue2, paramValue3, paramValue4, paramValue5, paramValue6, createman, createtime, status, remark, isMakeSure, dataIndex);
     }
 }

@@ -47,6 +47,11 @@ public class DatetimeUtil {
     public static String DEFAULT_DATE_TIME = "HH:mm";
 
     /**
+     * HH:mm:ss
+     */
+    public static String DEFAULT_DATE_TIMES = "HH:mm:ss";
+
+    /**
      * @return 根据默认格式(yyyy - MM - dd HH : mm : ss)获取当前时间
      */
     public static String getNow() {
@@ -383,8 +388,9 @@ public class DatetimeUtil {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         int result = cal.get(Calendar.DAY_OF_WEEK) - 1;
-        if (result == 0)
+        if (result == 0) {
             result = 7;
+        }
         return result;
     }
 
@@ -392,8 +398,9 @@ public class DatetimeUtil {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         int result = cal.get(Calendar.DAY_OF_WEEK) - 1;
-        if (result == 0)
+        if (result == 0) {
             result = 7;
+        }
         return result;
     }
 
