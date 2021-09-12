@@ -6,6 +6,9 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -819,6 +822,15 @@ public class DatetimeUtil {
 
         }
         return weenName;
+    }
+
+    public static String getNowDate(String format) {
+//        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+//        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+//        LocalDate endDate = LocalDate.parse(rentEntTime, format);
+//        int rentDay = Period.between(now, endDate).getDays();
+//        System.out.println(rentDay);
+        return LocalDate.now().format(DateTimeFormatter.ofPattern(format));
     }
 
 }

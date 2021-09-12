@@ -8,10 +8,10 @@ import java.util.Objects;
 /**
  * @description:
  * @author: lirf
- * @time: 2021/6/20
+ * @time: 2021/9/9
  */
 @Entity
-@Table(name = "tb_goods", schema = "store_db", catalog = "")
+@Table(name = "tb_goods", schema = "store_db_online", catalog = "")
 public class TbGoods {
     private int goodsId;
     private String goodsName;
@@ -61,6 +61,7 @@ public class TbGoods {
     private Integer sellCount;
     private Integer isZiYin;
     private String goodsKnow;
+    private Integer rentPayType;
 
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Id
@@ -543,6 +544,16 @@ public class TbGoods {
         this.goodsKnow = goodsKnow;
     }
 
+    @Basic
+    @Column(name = "rent_pay_type", nullable = true)
+    public Integer getRentPayType() {
+        return rentPayType;
+    }
+
+    public void setRentPayType(Integer rentPayType) {
+        this.rentPayType = rentPayType;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -595,11 +606,12 @@ public class TbGoods {
                 Objects.equals(barCodeShop, tbGoods.barCodeShop) &&
                 Objects.equals(sellCount, tbGoods.sellCount) &&
                 Objects.equals(isZiYin, tbGoods.isZiYin) &&
-                Objects.equals(goodsKnow, tbGoods.goodsKnow);
+                Objects.equals(goodsKnow, tbGoods.goodsKnow) &&
+                Objects.equals(rentPayType, tbGoods.rentPayType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(goodsId, goodsName, title, goodsImg, trueMoney, nowMoney, intro, shopId, isYuding, getWay, isInvoice, isPutaway, dataIndex, categoryId, areaId, property, startTime, endTime, goodsCode, goodsUnit, isSingle, goodsNum, isReturn, couponId, createman, createtime, lastaltertime, lastalterman, status, remark, goodsType, isPayOnline, outCode, depositMoney, peisongZcDesc, peisongPeiDesc, purchasePrice, isTimeGoods, limitNum, limitWay, limitBeginTime, levelId, advancePrice, barCode, barCodeShop, sellCount, isZiYin, goodsKnow);
+        return Objects.hash(goodsId, goodsName, title, goodsImg, trueMoney, nowMoney, intro, shopId, isYuding, getWay, isInvoice, isPutaway, dataIndex, categoryId, areaId, property, startTime, endTime, goodsCode, goodsUnit, isSingle, goodsNum, isReturn, couponId, createman, createtime, lastaltertime, lastalterman, status, remark, goodsType, isPayOnline, outCode, depositMoney, peisongZcDesc, peisongPeiDesc, purchasePrice, isTimeGoods, limitNum, limitWay, limitBeginTime, levelId, advancePrice, barCode, barCodeShop, sellCount, isZiYin, goodsKnow, rentPayType);
     }
 }

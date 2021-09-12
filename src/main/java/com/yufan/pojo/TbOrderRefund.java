@@ -17,16 +17,16 @@ public class TbOrderRefund {
     private String orderNo;
     private Integer detailId;
     private String partnerTradeNo;
-    private Byte status;
+    private Integer status;
     private String refundDesc;
     private Integer userId;
-    private Byte payWay;
+    private Integer payWay;
     private String refundAccount;
     private BigDecimal price;
     private Timestamp applyTime;
     private Timestamp finishTime;
     private Timestamp updateTime;
-    private Byte applyReason;
+    private Integer applyReason;
 
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Id
@@ -71,11 +71,11 @@ public class TbOrderRefund {
 
     @Basic
     @Column(name = "status", nullable = true)
-    public Byte getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
@@ -101,11 +101,11 @@ public class TbOrderRefund {
 
     @Basic
     @Column(name = "pay_way", nullable = true)
-    public Byte getPayWay() {
+    public Integer getPayWay() {
         return payWay;
     }
 
-    public void setPayWay(Byte payWay) {
+    public void setPayWay(Integer payWay) {
         this.payWay = payWay;
     }
 
@@ -161,11 +161,11 @@ public class TbOrderRefund {
 
     @Basic
     @Column(name = "apply_reason", nullable = true)
-    public Byte getApplyReason() {
+    public Integer getApplyReason() {
         return applyReason;
     }
 
-    public void setApplyReason(Byte applyReason) {
+    public void setApplyReason(Integer applyReason) {
         this.applyReason = applyReason;
     }
 

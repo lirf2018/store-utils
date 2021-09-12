@@ -17,7 +17,7 @@ public class TbInfo {
     private String infoImg;
     private String infoUrl;
     private String infoContent;
-    private Byte status;
+    private Integer status;
     private Integer shopId;
     private Integer infoIndex;
     private Timestamp createTime;
@@ -80,11 +80,11 @@ public class TbInfo {
 
     @Basic
     @Column(name = "status", nullable = true)
-    public Byte getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

@@ -24,8 +24,8 @@ public class TbPrivateCustom {
     private String contents;
     private Timestamp getTime;
     private String getTimeStr;
-    private Byte postWay;
-    private Byte isYuyue;
+    private Integer postWay;
+    private Integer isYuyue;
     private Integer flowStatus;
     private Integer goodsId;
     private String goodsName;
@@ -157,21 +157,21 @@ public class TbPrivateCustom {
 
     @Basic
     @Column(name = "post_way", nullable = true)
-    public Byte getPostWay() {
+    public Integer getPostWay() {
         return postWay;
     }
 
-    public void setPostWay(Byte postWay) {
+    public void setPostWay(Integer postWay) {
         this.postWay = postWay;
     }
 
     @Basic
     @Column(name = "is_yuyue", nullable = true)
-    public Byte getIsYuyue() {
+    public Integer getIsYuyue() {
         return isYuyue;
     }
 
-    public void setIsYuyue(Byte isYuyue) {
+    public void setIsYuyue(Integer isYuyue) {
         this.isYuyue = isYuyue;
     }
 

@@ -16,10 +16,10 @@ public class TbGiveUserCoupon {
     private int id;
     private Integer userId;
     private Integer couponId;
-    private Byte status;
+    private Integer status;
     private Timestamp createTime;
     private Timestamp updateTime;
-    private Byte addFrom;
+    private Integer addFrom;
     private Date outTime;
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,11 +55,11 @@ public class TbGiveUserCoupon {
 
     @Basic
     @Column(name = "status", nullable = true)
-    public Byte getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
@@ -85,11 +85,11 @@ public class TbGiveUserCoupon {
 
     @Basic
     @Column(name = "add_from", nullable = true)
-    public Byte getAddFrom() {
+    public Integer getAddFrom() {
         return addFrom;
     }
 
-    public void setAddFrom(Byte addFrom) {
+    public void setAddFrom(Integer addFrom) {
         this.addFrom = addFrom;
     }
 

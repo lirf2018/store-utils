@@ -17,13 +17,13 @@ public class TbTradeRecord {
     private String orderNo;
     private String tradeNo;
     private String partnerTradeNo;
-    private Byte recordType;
-    private Byte status;
+    private Integer recordType;
+    private Integer status;
     private String remark;
     private Timestamp createTime;
     private Timestamp updateTime;
     private BigDecimal price;
-    private Byte payWay;
+    private Integer payWay;
     private String tradeAcount;
     private Timestamp finishTime;
     private Timestamp submitTime;
@@ -71,21 +71,21 @@ public class TbTradeRecord {
 
     @Basic
     @Column(name = "record_type", nullable = true)
-    public Byte getRecordType() {
+    public Integer getRecordType() {
         return recordType;
     }
 
-    public void setRecordType(Byte recordType) {
+    public void setRecordType(Integer recordType) {
         this.recordType = recordType;
     }
 
     @Basic
     @Column(name = "status", nullable = true)
-    public Byte getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
@@ -131,11 +131,11 @@ public class TbTradeRecord {
 
     @Basic
     @Column(name = "pay_way", nullable = true)
-    public Byte getPayWay() {
+    public Integer getPayWay() {
         return payWay;
     }
 
-    public void setPayWay(Byte payWay) {
+    public void setPayWay(Integer payWay) {
         this.payWay = payWay;
     }
 

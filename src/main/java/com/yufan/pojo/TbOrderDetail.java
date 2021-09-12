@@ -8,10 +8,10 @@ import java.util.Objects;
 /**
  * @description:
  * @author: lirf
- * @time: 2021/6/23
+ * @time: 2021/9/9
  */
 @Entity
-@Table(name = "tb_order_detail", schema = "store_db", catalog = "")
+@Table(name = "tb_order_detail", schema = "store_db_online", catalog = "")
 public class TbOrderDetail {
     private int detailId;
     private Integer orderId;
@@ -46,6 +46,9 @@ public class TbOrderDetail {
     private String goodsSpecNameStr;
     private Integer skuId;
     private String goodsIntro;
+    private Integer rentPayType;
+    private Integer rentDay;
+    private Timestamp rentEndTime;
 
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Id
@@ -378,6 +381,36 @@ public class TbOrderDetail {
         this.goodsIntro = goodsIntro;
     }
 
+    @Basic
+    @Column(name = "rent_pay_type", nullable = true)
+    public Integer getRentPayType() {
+        return rentPayType;
+    }
+
+    public void setRentPayType(Integer rentPayType) {
+        this.rentPayType = rentPayType;
+    }
+
+    @Basic
+    @Column(name = "rent_day", nullable = true)
+    public Integer getRentDay() {
+        return rentDay;
+    }
+
+    public void setRentDay(Integer rentDay) {
+        this.rentDay = rentDay;
+    }
+
+    @Basic
+    @Column(name = "rent_end_time", nullable = true)
+    public Timestamp getRentEndTime() {
+        return rentEndTime;
+    }
+
+    public void setRentEndTime(Timestamp rentEndTime) {
+        this.rentEndTime = rentEndTime;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -415,11 +448,14 @@ public class TbOrderDetail {
                 Objects.equals(timeGoodsId, detail.timeGoodsId) &&
                 Objects.equals(goodsSpecNameStr, detail.goodsSpecNameStr) &&
                 Objects.equals(skuId, detail.skuId) &&
-                Objects.equals(goodsIntro, detail.goodsIntro);
+                Objects.equals(goodsIntro, detail.goodsIntro) &&
+                Objects.equals(rentPayType, detail.rentPayType) &&
+                Objects.equals(rentDay, detail.rentDay) &&
+                Objects.equals(rentEndTime, detail.rentEndTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(detailId, orderId, goodsId, goodsName, goodsSpec, goodsSpecName, goodsCount, saleMoney, goodsTrueMoney, goodsPurchasePrice, timePrice, depositPrice, shopId, shopName, outCode, getAddrId, getAddrName, getTime, backAddrId, backAddrName, backTime, detailStatus, isCoupon, createtime, lastaltertime, lastalterman, remark, goodsImg, cartId, timeGoodsId, goodsSpecNameStr, skuId, goodsIntro);
+        return Objects.hash(detailId, orderId, goodsId, goodsName, goodsSpec, goodsSpecName, goodsCount, saleMoney, goodsTrueMoney, goodsPurchasePrice, timePrice, depositPrice, shopId, shopName, outCode, getAddrId, getAddrName, getTime, backAddrId, backAddrName, backTime, detailStatus, isCoupon, createtime, lastaltertime, lastalterman, remark, goodsImg, cartId, timeGoodsId, goodsSpecNameStr, skuId, goodsIntro, rentPayType, rentDay, rentEndTime);
     }
 }

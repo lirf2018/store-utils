@@ -290,4 +290,22 @@ public class Constants {
     public static String BUSINESS_TYPE_1 = "change_qr_code";// 优惠券兑换
     public static String BUSINESS_TYPE_2 = "create_private_goods";// 生成私人定制数据
 
+    /**
+     * 需要特殊处理的商品类型
+     */
+    public static Integer GOODS_TYPE_3 = 3;// 租赁
+
+
+    /**
+     * 日期类型（选择下拉日期）
+     */
+    public static String DATE_LIST_FLAG_CODE = "date_list_flag";// 日期类型
+    public static String DATE_LIST_TYPE_CODE = "date_list_type";// 日期类型格式
+    public static String DATE_LIST_REST_CODE = "date_list_rest";// 休息时间
+    public static String DATE_LIST_FLAG_1 = "1";// 预约 日期类型key
+    public static String DATE_LIST_FLAG_2 = "2";// 租赁 日期类型key
+    public static String DATE_LIST_TYPE_KEY_1 = "1";// 日期类型格式key
+    public static String DATE_LIST_TYPE_KEY_2 = "2";// 日期类型格式key
+    public static String DATE_LIST_TYPE_KEY_3 = "3";// 日期类型格式key
+
 }

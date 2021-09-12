@@ -225,4 +225,22 @@ public class HelpCommon {
         String uuid = UUID.randomUUID().toString();
         return uuid.replace("-", "");
     }
+
+
+    /**
+     * 获取季节
+     *
+     * @param month
+     * @return
+     */
+    public static int getSaleSeason(String month) {
+        if ("04".equals(month) || "05".equals(month) || "06".equals(month)) {
+            return 2;
+        } else if ("07".equals(month) || "08".equals(month) || "09".equals(month)) {
+            return 3;
+        } else if ("10".equals(month) || "11".equals(month) || "12".equals(month)) {
+            return 4;
+        }
+        return 1;
+    }
 }

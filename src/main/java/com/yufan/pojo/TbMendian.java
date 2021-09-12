@@ -15,7 +15,7 @@ public class TbMendian {
     private int storeId;
     private String storeName;
     private String storeDetail;
-    private Byte status;
+    private Integer status;
     private String storeLng;
     private String storeLat;
     private String storeTel;
@@ -56,11 +56,11 @@ public class TbMendian {
 
     @Basic
     @Column(name = "status", nullable = true)
-    public Byte getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
